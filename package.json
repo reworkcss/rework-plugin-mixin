@@ -1,6 +1,6 @@
 {
   "name": "rework-plugin-mixin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "mixin() plugin for rework, formerly included in core",
   "main": "index.js",
   "scripts": {
