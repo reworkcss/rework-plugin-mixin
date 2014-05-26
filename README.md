@@ -3,22 +3,34 @@ rework-plugin-mixin
 
 [![Build Status](https://travis-ci.org/reworkcss/rework-plugin-mixin.png)](https://travis-ci.org/reworkcss/rework-plugin-mixin)
 
-mixin() plugin for rework, formerly included in core
+A [Rework](https://github.com/reworkcss/rework) plugin to add user-defined mixins.
 
-Add user-defined mixins, functions that are invoked for a given property, and
-passed the value. Returning an object that represents one or more properties.
+## Installation
 
-For example the following `overflow` mixin allows the designer
-to utilize `overflow: ellipsis;` to automatically assign associated
-properties preventing wrapping etc.
+```
+npm install rework-plugin-mixin
+```
+
+## Use
+
+User-defined mixins are functions that are invoked for a given property, and
+passed the value. They return an object that represents one or more
+properties.
+
+For example the following `overflow` mixin allows the designer to utilize
+`overflow: ellipsis;` to automatically assign associated properties preventing
+wrapping etc.
 
 The receiver (`this`) is the `Rework` instance, allowing the mixin to reference
 properties such as the vendor `.prefixes` array.
 
 ```js
+var rework = require('rework');
+var mixin = require('rework-plugin-mixin');
+
 var css = rework(css)
-  .use(rework.mixin({ overflow: ellipsis }))
-  .toString()
+  .use(mixin({ overflow: ellipsis }))
+  .toString();
 
 function ellipsis(type) {
   if ('ellipsis' == type) {
@@ -54,7 +66,7 @@ h1 {
 
   You may also return array values to expand to several definitions of the property:
 
-```
+```js
 function display(type) {
   if ('flex' == type) {
     return {
