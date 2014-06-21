@@ -1,5 +1,5 @@
 var rework = require('rework')
-  ,  mixin = require('../')
+  , mixin = require('../')
   , fs = require('fs')
   , assert = require('assert')
   , read = fs.readFileSync;
